@@ -8,7 +8,7 @@ async function user() {
   
   const user = await app.logIn(credentials)
   
-  return user
+  return 'Bearer ' + user.accessToken
 }
 
 
@@ -17,6 +17,6 @@ export const api = axios.create({
   baseURL: "https://sa-east-1.aws.data.mongodb-api.com/app/data-ufowq/endpoint/data/v1/action/",
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + await user().then(user => user.accessToken),
+    'Authorization': await user().then(),
   },
 })
