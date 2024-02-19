@@ -58,6 +58,7 @@ display: flex;
 
 img {
   flex: 1;
+  width: 100%;
   border-radius: 12px;
   background-color: red;
 }
@@ -92,6 +93,17 @@ img {
     background-color: #FFFFFF90;
     transition: all .3s ease;
     cursor: pointer;
+  }
+
+  @media only screen and (max-device-width: 768px) {
+    & {
+      width: 15rem;
+    }
+
+    ${BoxDescription} {
+      font-size: 0.8rem;
+    }
+
   }
 
 `

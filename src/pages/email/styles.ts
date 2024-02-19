@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Groups = styled.div`
 
   display: flex;
+  width: 100%;
   align-items: center;
   padding: .5rem 1rem;
   border-radius: 12px;
@@ -57,6 +58,7 @@ export const TextEmail = styled.div`
 
   display: flex;
   flex: 1;
+  width: 100%;
   align-items: center;
   
   padding: 1rem;
@@ -104,6 +106,7 @@ export const ButtonsToForm = styled.div`
   }
 
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -156,6 +159,7 @@ export const FormContainer = styled.form`
 
 display: flex;
 flex-direction: column;
+background-color: red;
 height: 100%;
 
 gap: 1rem;
@@ -182,4 +186,11 @@ button {
     flex: 1;
   }
 
+  @media only screen and (max-device-width: 768px) {
+    & * {
+
+      font-size: .8rem;
+    } 
+
+  }
 `

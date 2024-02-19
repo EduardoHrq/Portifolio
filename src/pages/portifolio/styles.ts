@@ -17,5 +17,9 @@ export const PortifolioContainer = styled.div<resize>`
   overflow-x: hidden;
   overflow-y: auto;
 
+  @media only screen and (max-device-width: 768px) {
+    grid-template-columns: repeat(auto-fit, 100%);
+  }
+
 
 `

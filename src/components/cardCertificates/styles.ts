@@ -80,4 +80,11 @@ export const CardCertificateContainer = styled.div`
     
   }
 
+   @media only screen and (max-device-width: 768px) {
+    width: 15rem;
+
+    .certificate-name {
+      font-size: .8rem;
+    }
+  }
 `

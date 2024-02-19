@@ -103,13 +103,25 @@ export const ContentCertificate = styled(Dialog.Content)<ViewPosition>`
     font-weight: bold;
   }
 
-   @media screen and (max-device-width: 768px) {
+   @media only screen and (max-device-width: 768px) {
     & {
+      height: 95%;
+      width: 98%;
       grid-template-columns: none;
-      grid-template-rows: 20rem 1fr;
+      grid-template-rows: 15rem 1fr;
+
+      font-size: .8rem;
 
       img {
-        max-height: 20rem;
+        object-fit: contain;
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        /* max-height: 15rem; */
+      }
+
+      ${Skills} {
+        display: none;
       }
 
     }

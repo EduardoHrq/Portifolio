@@ -109,5 +109,9 @@ export const AboutContainer = styled.div<windowSize>`
     }
   }
 
+  @media only screen and (max-device-width: 768px) {
+      font-size: .8rem;
+  }
+
 `
 

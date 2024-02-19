@@ -22,40 +22,40 @@ export function Side() {
 
         <PagesContainer>
           <NavLink to={"/"}>
-            <User size={25} weight="fill" className="icons" />
+            <User weight="fill" className="icons" />
             <div>About me</div>
           </NavLink>
           <NavLink to={"portifolio"}>
-            <Briefcase size={25} weight="fill" className="icons"/>
+            <Briefcase weight="fill" className="icons"/>
             <div >Portifilio</div>
           </NavLink>
           <NavLink to={"certificates"}>
-            <Article size={25} weight="fill"/>
+            <Article weight="fill"/>
             <div >Certificates</div>
           </NavLink>
           <NavLink to={"githubstats"}>
-            <GithubLogo size={25} weight="fill" className="icons"/>
+            <GithubLogo weight="fill" className="icons"/>
             <div >Github Stats</div>
           </NavLink>
           <NavLink to={"sendEmail"}>
-            <PaperPlaneRight size={25} weight="fill" className="icons"/>
+            <PaperPlaneRight weight="fill" className="icons"/>
             <div >Send E-Mail</div>
           </NavLink>
         </PagesContainer>
 
         <SocialContainer>
           <a href="https://github.com/EduardoHrq" target="_blank">
-            <GithubLogo size={50} color="#fff" weight="fill"/>
+            <GithubLogo color="#fff" weight="fill"/>
             <p className="context-box">Github</p>
           </a>
 
           <a href="https://linkedin.com/in/eduardohrq" target="_blank">
-            <LinkedinLogo size={50} color="#fff" weight="fill"/>
+            <LinkedinLogo color="#fff" weight="fill"/>
             <p className="context-box">Linkedin</p>
           </a>
 
           <a href={'../../doc/EDUARDO_HENRIQUE.pdf'} download>
-            <Paperclip size={50} color="#fff" weight="fill"/>
+            <Paperclip color="#fff" weight="fill"/>
             <p className="context-box">Curriculo</p>
           </a>
         </SocialContainer>

@@ -4,52 +4,6 @@ interface hidden {
   hidden: boolean
 }
 
-export const SideArea = styled.div<hidden>`
-
-  position: relative;
-  display: flex;
-  height: 100%;
-  
-  
-    .button-close{
-      position: absolute;
-      width: 2rem;
-      height: 2rem;
-      border: none;
-      border-radius: 100%;
-      outline: none;
-
-      cursor: pointer;
-
-      line-height: 0;
-      font-size: 1.5rem;
-  
-      right: ${p => p.hidden ? "-1.5rem" : "-.7rem"};
-      top: 2rem;
-      z-index: 99;
-
-      rotate: ${p => p.hidden ? "180deg" : "0deg"};
-
-      transition: all .5s ease;
-    }
-`
-
-export const SideContainer = styled.div<hidden>`
-  position: relative;
-  flex: 1;
-  display: grid;
-
-  grid-template-rows: auto 1fr 6rem;
-
-  width: ${p => p.hidden ? "0rem" : "20rem"};
-  overflow: hidden;
-
-  background-color: #18181b25;
-
-  transition: all .3s ease;
-
-`
-
 export const PerfilContainer = styled.div`
 
   height: 12rem;
@@ -74,6 +28,7 @@ export const PerfilContainer = styled.div`
   font-weight: bold;
 
 `
+
 
 export const PagesContainer = styled.div`
 
@@ -116,6 +71,7 @@ export const PagesContainer = styled.div`
 
 `
 
+
 export const SocialContainer = styled.div`
 
   display: flex;
@@ -157,3 +113,66 @@ export const SocialContainer = styled.div`
   }
 
 `
+
+
+export const SideContainer = styled.div<hidden>`
+  position: relative;
+  flex: 1;
+  display: grid;
+
+  grid-template-rows: auto 1fr 6rem;
+
+  width: ${p => p.hidden ? "0rem" : "20rem"};
+  overflow: hidden;
+
+  background-color: #18181b25;
+
+  transition: all .3s ease;
+
+
+  @media only screen and (max-device-width: 768px) {
+
+      
+      font-size: .8rem;
+
+
+
+    ${SocialContainer} {
+      font-size: 2rem;
+    }
+  }
+`
+
+export const SideArea = styled.div<hidden>`
+
+  position: relative;
+  display: flex;
+  height: 100%;
+  
+  
+    .button-close{
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      border-radius: 100%;
+      outline: none;
+
+      cursor: pointer;
+
+      line-height: 0;
+      font-size: 1.5rem;
+  
+      right: ${p => p.hidden ? "-1.5rem" : "-.7rem"};
+      top: 2rem;
+      z-index: 99;
+
+      rotate: ${p => p.hidden ? "180deg" : "0deg"};
+
+      transition: all .5s ease;
+    }
+`
+
+
+
+
