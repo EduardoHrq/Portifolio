@@ -159,7 +159,6 @@ export const FormContainer = styled.form`
 
 display: flex;
 flex-direction: column;
-background-color: red;
 height: 100%;
 
 gap: 1rem;
@@ -187,10 +186,18 @@ button {
   }
 
   @media only screen and (max-device-width: 768px) {
-    & * {
+    
+    label {
+      font-size: .7rem;
+    }
 
+    input {
+      font-size: .7rem;
+    }
+
+    button, .bttCopy, .bttClose {
       font-size: .8rem;
-    } 
+    }
 
   }
 `

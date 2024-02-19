@@ -139,6 +139,10 @@ export const SideContainer = styled.div<hidden>`
 
     ${SocialContainer} {
       font-size: 2rem;
+
+      p {
+        font-size: .8rem;
+      }
     }
   }
 `
