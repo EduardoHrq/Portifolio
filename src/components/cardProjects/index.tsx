@@ -4,12 +4,16 @@ import { BoxDescription, CardProjContainer } from "./styles";
 // import { ModalProject } from "../modalProject";
 
 interface doc {
+  _id: string
   title: string
+  description: string
+  princTech: string
   languages: [string]
+  image: string
 }
 
 interface cardProps {
-  doc: doc | null
+  doc: doc
 }
 
 export function CardProjects({doc}: cardProps) {
@@ -26,16 +30,16 @@ export function CardProjects({doc}: cardProps) {
         <ModalProject/>
         
       </Dialog.Root> */}
-      <img src="https://revistacarro.com.br/wp-content/uploads/2022/04/Mustang-Mach-1-2022_4.jpg" alt="imagem" />
+      <img src={doc.image} alt="imagem" />
       <BoxDescription>
         <div className="principal">
           {/* <SoccerBall/> */}
-          React
+          {doc.princTech}
         </div>
-        <div className="title">{doc ? doc.title : "fkaljdf"}</div>
-        <div className="desc">Description</div>
+        <div className="title">{doc.title}</div>
+        <div className="desc">{doc.description}</div>
         <div className="lang">
-          {doc ? doc.title : "fkaljdf"}
+          {doc.languages}
         </div>
       </BoxDescription>
     </CardProjContainer>

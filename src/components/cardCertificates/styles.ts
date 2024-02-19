@@ -44,6 +44,7 @@ export const CardCertificateContainer = styled.div`
 
   .certificate-name {
     position: absolute;
+    width: max-content;
     background-color: #00000075;
     color: #FFF;
     transform: translate(-50%, -50%);

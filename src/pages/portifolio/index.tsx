@@ -6,7 +6,10 @@ import { api } from "../../lib/axios";
 interface ProjectsDocument {
   _id: string
   title: string
+  description: string
+  princTech: string
   languages: [string]
+  image: string
 }
 
 
@@ -28,6 +31,8 @@ export function Portifolio() {
   }
 
   useEffect(() => {
+
+    window.document.title = "Projects"
     findAll()
     setWindowHeigth(window.innerHeight)
     
@@ -51,13 +56,6 @@ export function Portifolio() {
           />
         )
       })}
-
-      <CardProjects doc={null}/>
-      <CardProjects doc={null}/>
-      <CardProjects doc={null}/>
-      <CardProjects doc={null}/>
-      <CardProjects doc={null}/>
-      <CardProjects doc={null}/>
       
     </PortifolioContainer>
   )

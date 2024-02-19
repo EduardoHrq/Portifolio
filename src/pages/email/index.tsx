@@ -1,6 +1,6 @@
 import { ClipboardText, PaperPlaneRight, Trash, X } from "phosphor-react";
 import { BttCopy, ButtonsToForm, FormContainer, Groups, TextEmail } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Email() {
 
@@ -8,6 +8,9 @@ export function Email() {
 
   const [assunto, setAssunto] = useState<string>()
   
+  useEffect(() => {
+    window.document.title = "Send E-mail"
+  }, [])
 
   return (
     <FormContainer>

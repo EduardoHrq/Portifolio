@@ -9,7 +9,22 @@ interface ViewPosition {
   y: number
 }
 
-export function CardCertificates() {
+interface Certificates {
+  _id: string
+  title: string
+  ch: number
+  codigo: string
+  empresa: string
+  certificate: string
+  skills: [string]
+  image: string
+} 
+
+interface Document {
+  doc: Certificates
+}
+
+export function CardCertificates({doc}: Document) {
 
   const [viewPosition, setViewPosition] = useState<ViewPosition>({
     x: 0,
@@ -31,12 +46,12 @@ export function CardCertificates() {
             }}/>
           </Dialog.Trigger>
 
-          <ModalCertificate viewPosition={viewPosition}/>
+          <ModalCertificate viewPosition={viewPosition} doc={doc}/>
           
         </Dialog.Root>
 
-      <img src="https://revistacarro.com.br/wp-content/uploads/2022/04/Mustang-Mach-1-2022_4.jpg" alt="img" />
-      <div className="certificate-name">name</div>
+      <img src={doc.image} alt="img" />
+      <div className="certificate-name">{doc.title}</div>
     </CardCertificateContainer>
   )
 }

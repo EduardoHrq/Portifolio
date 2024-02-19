@@ -1,12 +1,31 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import styled from "styled-components";
 
+export const Skills = styled.div`
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+
+  div {
+    padding: .7rem 1rem;
+    background-color: #FFF;
+    color: #000;
+    border-radius: 9999px;
+  }
+
+`
+
 export const Group = styled.div`
 
   display: flex;
   flex-direction: column;
 
   gap: .5rem;
+
+  a {
+    color: #FFF;
+  }
 
 `
 
@@ -22,7 +41,7 @@ export const Infos = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 
   padding-bottom: 2rem;
 
@@ -67,8 +86,8 @@ export const ContentCertificate = styled(Dialog.Content)<ViewPosition>`
   
   transform-origin: top left;
   animation: modalCertificate .5s ease forwards ;
+
   img {
-    background-color: red;
     align-self: center;
     width: 100%;
     height: 100%;
@@ -82,6 +101,18 @@ export const ContentCertificate = styled(Dialog.Content)<ViewPosition>`
     border: none;
     border-radius: 8px;
     font-weight: bold;
+  }
+
+   @media screen and (max-device-width: 768px) {
+    & {
+      grid-template-columns: none;
+      grid-template-rows: 20rem 1fr;
+
+      img {
+        max-height: 20rem;
+      }
+
+    }
   }
 
 `

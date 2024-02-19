@@ -7,10 +7,9 @@ export function Home() {
   const [windowHeigth, setWindowHeigth] = useState<number>()
 
   useEffect(() => {
-    // console.log(window.innerHeight);
-    setWindowHeigth(window.innerHeight)
-
+    window.document.title = "About Me"
     
+    setWindowHeigth(window.innerHeight)
   }, [])
   
   window.addEventListener('resize', () => {
