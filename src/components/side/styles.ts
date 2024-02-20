@@ -46,6 +46,7 @@ export const PagesContainer = styled.div`
     border-radius: 8px;
 
     text-decoration: none;
+    font-size: 1rem;
 
     display: flex;
     align-items: center;
@@ -80,6 +81,8 @@ export const SocialContainer = styled.div`
   padding: 0 1rem;
   border-top: solid #00000050;
 
+  font-size: 2.5rem;
+
   a {
     line-height: 0;
     padding: .5rem 1rem;
@@ -102,6 +105,8 @@ export const SocialContainer = styled.div`
     font-weight: bold;
     padding: 1rem;
     border-radius: 8px;
+
+    font-size: 1rem;
 
     transform: translate(-50%, -50%);
     top: 25%;

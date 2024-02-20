@@ -60,7 +60,6 @@ img {
   flex: 1;
   width: 100%;
   border-radius: 12px;
-  background-color: red;
 }
 
   &:hover {
