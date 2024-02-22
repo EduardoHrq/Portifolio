@@ -8,7 +8,7 @@ interface doc {
   title: string
   description: string
   princTech: string
-  languages: [string]
+  languages: string[]
   image: string
 }
 

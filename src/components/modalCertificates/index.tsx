@@ -66,9 +66,9 @@ export function ModalCertificate({viewPosition, doc}: Props) {
 
           <Group>
             <h3>Skills vistas:</h3>
-            <Skills>{doc.skills.map((skill) => {
+            <Skills>{doc.skills.map((skill, index) => {
               return (
-                <div>{skill}</div>
+                <div key={index}>{skill}</div>
               )
             })}</Skills>
           </Group>

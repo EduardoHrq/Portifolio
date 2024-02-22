@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CardCertificates } from "../../components/cardCertificates/indes";
 import { CertificatesContainer } from "./styles";
 import { api } from "../../lib/axios";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 interface Certificates {
   _id: string
@@ -14,30 +15,55 @@ interface Certificates {
   image: string
 }
 
+export interface DataResponse {
+  documents: Certificates[]
+}
+
 export function Certificates() {
 
   const [windowHeigth, setWindowHeigth] = useState<number>()
-  const [documents, setDocuments] = useState<Certificates[]>([])
+  // const [documents, setDocuments] = useState<Certificates[]>([])
 
 
-  const findAll = async () => {
-    await api.post('find', {
-      dataSource: "portifolio",
-      database: "portifolio",
-      collection: "certificate",
-      filter: {}
-    }).then(res => {
-      console.log(res.data.documents)
-      setDocuments(res.data.documents)
-    })
-  }
+  // const findAll = async () => {
+  //   await api.post('find', {
+  //     dataSource: "portifolio",
+  //     database: "portifolio",
+  //     collection: "certificate",
+  //     filter: {}
+  //   }).then(res => {
+  //     console.log(res.data.documents)
+  //     setDocuments(res.data.documents)
+  //   })
+  // }
 
 
   useEffect(() => {
     window.document.title = "Certificates"
-    findAll()
+    // findAll()
     setWindowHeigth(window.innerHeight)
   }, [])
+
+
+  const {data: DataResponse, isLoading} = useQuery({
+    queryKey: ['getCertificates'],
+    queryFn: async () => {
+      const data = await api.post('find', {
+        dataSource: "portifolio",
+        database: "portifolio",
+        collection: "certificate",
+        filter: {}
+      }).then(res => res.data)
+
+      return data
+    },
+    placeholderData: keepPreviousData
+  })
+
+  if(isLoading) {
+    return null
+  }
+
   
   window.addEventListener('resize', () => {
     if (window.innerHeight != windowHeigth)
@@ -47,11 +73,12 @@ export function Certificates() {
   return (
     <CertificatesContainer resize={windowHeigth!}>
       
-      {documents.map((doc) => {
+      {DataResponse?.documents.map((doc: Certificates) => {
         return (
           <CardCertificates 
             key={doc._id}
-            doc={doc}/>
+            doc={doc}
+            />
         )
       })}
 

@@ -20,11 +20,11 @@ interface Certificates {
   image: string
 } 
 
-interface Document {
+interface CertificateProps {
   doc: Certificates
 }
 
-export function CardCertificates({doc}: Document) {
+export function CardCertificates({doc}: CertificateProps) {
 
   const [viewPosition, setViewPosition] = useState<ViewPosition>({
     x: 0,
@@ -34,7 +34,7 @@ export function CardCertificates({doc}: Document) {
   return (
     <CardCertificateContainer>
 
-        <Dialog.Root>
+        <Dialog.Root >
           <Dialog.Trigger asChild>
             <Eye size={25} weight="fill" onClick={(element) => {
 

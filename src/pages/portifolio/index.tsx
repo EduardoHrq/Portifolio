@@ -2,42 +2,55 @@ import { useEffect, useState } from "react";
 import { CardProjects } from "../../components/cardProjects";
 import { PortifolioContainer } from "./styles";
 import { api } from "../../lib/axios";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-interface ProjectsDocument {
+export interface ProjectsDocument {
   _id: string
   title: string
   description: string
   princTech: string
-  languages: [string]
+  languages: string[]
   image: string
 }
 
+export interface DataResponse {
+  documents: ProjectsDocument[]
+}
 
 export function Portifolio() {
-
-  const [documents, setDocuments] = useState<ProjectsDocument[]>([])
+  
   const [windowHeigth, setWindowHeigth] = useState<number>()
-
-  const findAll = async () => {
-    await api.post('find', {
-      dataSource: "portifolio",
-      database: "portifolio",
-      collection: "project",
-      filter: {}
-    }).then(res => {
-      console.log(res.data.documents)
-      setDocuments(res.data.documents)
-    })
-  }
 
   useEffect(() => {
 
     window.document.title = "Projects"
-    findAll()
+    // findAll()
     setWindowHeigth(window.innerHeight)
     
   }, [])
 
+  const {data: DataResponse, isLoading }= useQuery({
+    queryKey: ['getProjects'],
+    queryFn: async () => {
+      const response = await api.post('find', {
+        dataSource: "portifolio",
+        database: "portifolio",
+        collection: "project",
+        filter: {},
+      })
+
+      const data = await response.data
+
+      console.log(data);
+
+      return data
+    },
+    placeholderData: keepPreviousData,
+  })
+
+  if (isLoading) {
+    return null
+  }
 
   window.addEventListener('resize', () => {
     if (window.innerHeight != windowHeigth)
@@ -48,7 +61,7 @@ export function Portifolio() {
   return (
     <PortifolioContainer resize={windowHeigth!}>
       
-      {documents.map((doc) => {
+      {DataResponse?.documents.map((doc: ProjectsDocument) => {
         return (
           <CardProjects 
             key={doc._id}
